@@ -38,6 +38,7 @@
         <artifactId>maven-jar-plugin</artifactId>
         <version>3.4.2</version>
         <configuration>
+          <addDefaultExcludes>false</addDefaultExcludes>
           <archive>
             <manifest>
               <addClasspath>true</addClasspath>
