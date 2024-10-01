@@ -1,6 +1,6 @@
 pipeline {
     environment {
-            MAVEN_HOME = tool('docker')
+            DOCKER_HOME = tool('docker')
             PATH = "${DOCKER_HOME}:${env.PATH}"
         }
         docker {
