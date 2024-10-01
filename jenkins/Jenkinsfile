@@ -1,8 +1,11 @@
 pipeline {
+    agent None
     environment {
             DOCKER_HOME = tool('docker')
             PATH = "${DOCKER_HOME}:${env.PATH}"
         }
+    stages{
+        stage('prebuild'){
         docker {
             image 'maven:3.9.9'
             args '-v /root/.m2:/root/.m2'
@@ -28,6 +31,8 @@ pipeline {
             steps {
                 sh './jenkins/scripts/deliver.sh'
             }
+        }
+    }
         }
     }
 }
