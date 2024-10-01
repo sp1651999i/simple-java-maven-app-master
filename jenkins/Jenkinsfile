@@ -1,13 +1,4 @@
 pipeline {
-    agent any
-    stages {
-        stage('prebuild'){
-            steps{
-                echo "$PATH"
-            }
-                
-        }
-    }
     agent {
         docker {
             image 'maven:3.9.0'
@@ -17,6 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                echo "$PATH"
                 sh 'mvn -B -DskipTests clean package'
             }
         }
