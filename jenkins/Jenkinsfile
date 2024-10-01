@@ -1,7 +1,7 @@
 pipeline {
     environment {
             MAVEN_HOME = tool('docker')
-            PATH = ${DOCKER_HOME}:${env.PATH}
+            PATH = "${DOCKER_HOME}:${env.PATH}"
         }
         docker {
             image 'maven:3.9.9'
