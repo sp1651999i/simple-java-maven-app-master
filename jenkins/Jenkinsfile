@@ -1,15 +1,8 @@
 pipeline {
-    agent any
-    environment {
-            DOCKER_HOME = tool('docker')
-            PATH = "${DOCKER_HOME}:${env.PATH}"
-        }
-    stages {
-        stage('prebuild') {
         agent {
                 docker {
                     image 'maven:3.9.9'
-                    args '-v /root/.m2:~/.m2'
+                    args '-v /root/.m2:${env.HOME}/.m2'
                 }
             }
             stages {
@@ -34,7 +27,6 @@ pipeline {
                     }
                 }
             }
-        }
-    }
+       
 
 }
